@@ -1,2 +1,2 @@
-# playlist-manager
-A simple playlist manager application.
+# zapper-password-manager
+A simple password manager application.
