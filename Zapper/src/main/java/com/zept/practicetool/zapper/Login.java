@@ -33,11 +33,11 @@ public class Login extends javax.swing.JFrame {
         txtPass = new javax.swing.JPasswordField();
         txtUsername = new javax.swing.JTextField();
         btnSignIn = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnSignup = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("ZAPPER - Password Manager");
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("ZAPPER - Login");
         setResizable(false);
 
         lblWelcome.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -82,8 +82,18 @@ public class Login extends javax.swing.JFrame {
         );
 
         btnSignIn.setText("SIGN IN");
+        btnSignIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSignInActionPerformed(evt);
+            }
+        });
 
-        jButton1.setText("SIGN UP");
+        btnSignup.setText("SIGN UP");
+        btnSignup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSignupActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -104,7 +114,7 @@ public class Login extends javax.swing.JFrame {
                             .addGap(77, 77, 77)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(btnSignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton1))
+                                .addComponent(btnSignup))
                             .addGap(85, 85, 85))))
                 .addContainerGap(44, Short.MAX_VALUE))
         );
@@ -120,13 +130,23 @@ public class Login extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(btnSignup)
                 .addGap(21, 21, 21))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignupActionPerformed
+        Signup form = new Signup();
+        form.setVisible(true);
+    }//GEN-LAST:event_btnSignupActionPerformed
+
+    private void btnSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignInActionPerformed
+        MainWindow form = new MainWindow();
+        form.setVisible(true);
+    }//GEN-LAST:event_btnSignInActionPerformed
 
     /**
      * @param args the command line arguments
@@ -165,7 +185,7 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSignIn;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnSignup;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblPass;
     private javax.swing.JLabel lblUsername;

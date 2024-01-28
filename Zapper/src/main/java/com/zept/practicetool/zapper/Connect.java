@@ -12,7 +12,7 @@ import java.sql.Statement;
  */
 public class Connect {
     // Get the present working directory
-    static String relativePath = System.getProperty("user.dir") + File.separator + "db" + File.separator + "practicetool.db";
+    static String relativePath = System.getProperty("user.dir") + File.separator + "db" + File.separator + "?.db";
     // Connection string
     static String url = "jdbc:sqlite:" + relativePath;
     static Connection con = null;
@@ -37,14 +37,14 @@ public class Connect {
             System.out.println(e.getMessage());
         }
     }
-    /**
     // Create a new table if there is none
     public static void createNewTable() {
-        String sql = "CREATE TABLE IF NOT EXISTS history (\n"
-            + "id integer PRIMARY KEY,\n" 
-            + "date text NOT NULL,\n" 
-            + "noOfNotes integer,\n"
-            + "score real\n"
+        String sql = "CREATE TABLE IF NOT EXISTS user (\n"
+            + "email text PRIMARY KEY,\n" 
+            + "password text NOT NULL,\n"
+            + "firstName text,\n"
+            + "middleName text,\n"
+            + "lastName text,\n"
             + ");";
         try {
             con = DriverManager.getConnection(url);
@@ -64,7 +64,6 @@ public class Connect {
             }
         }
     }
-    **/
 }
 
 
