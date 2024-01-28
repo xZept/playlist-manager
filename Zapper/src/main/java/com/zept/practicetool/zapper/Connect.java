@@ -46,10 +46,16 @@ public class Connect {
             + "middleName text,\n"
             + "lastName text\n"
             + ");";
+        String sql2 = "CREATE TALE IF NOT EXISTS account (\n"
+            + "id int PRIMARY KEY AUTOINCREMENT,\n"
+            + "emailOrUsername text,\n"
+            + "password text\n"
+            + ");";
         try {
             con = DriverManager.getConnection(url);
             Statement insert = con.createStatement();
             insert.execute(sql);
+            insert.execute(sql2);
         }
         catch (SQLException e) {
             System.out.println(e.getMessage());
