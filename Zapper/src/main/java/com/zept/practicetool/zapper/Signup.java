@@ -71,6 +71,8 @@ public class Signup extends javax.swing.JFrame {
 
         lblConfirmPassword.setText("Confirm Password");
 
+        txtConfirmPassword.setText("jPasswordField1");
+
         javax.swing.GroupLayout pnlSignUpLayout = new javax.swing.GroupLayout(pnlSignUp);
         pnlSignUp.setLayout(pnlSignUpLayout);
         pnlSignUpLayout.setHorizontalGroup(
@@ -170,9 +172,9 @@ public class Signup extends javax.swing.JFrame {
                 .addComponent(lvlSignUp)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSignup)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         pack();

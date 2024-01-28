@@ -10,11 +10,15 @@ package com.zept.practicetool.zapper;
  */
 public class Login extends javax.swing.JFrame {
 
+    Database db;
     /**
      * Creates new form Login
      */
     public Login() {
         initComponents();
+        Connect con = new Connect();
+        con.connect();
+        db = new Database();
     }
 
     /**
@@ -28,10 +32,10 @@ public class Login extends javax.swing.JFrame {
 
         lblWelcome = new javax.swing.JLabel();
         pnlUserInput = new javax.swing.JPanel();
-        lblUsername = new javax.swing.JLabel();
+        lblEmail = new javax.swing.JLabel();
         lblPass = new javax.swing.JLabel();
         txtPass = new javax.swing.JPasswordField();
-        txtUsername = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
         btnSignIn = new javax.swing.JButton();
         btnSignup = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
@@ -46,7 +50,7 @@ public class Login extends javax.swing.JFrame {
 
         pnlUserInput.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        lblUsername.setText("Username");
+        lblEmail.setText("Email");
 
         lblPass.setText("Password");
 
@@ -55,16 +59,18 @@ public class Login extends javax.swing.JFrame {
         pnlUserInputLayout.setHorizontalGroup(
             pnlUserInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlUserInputLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnlUserInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(pnlUserInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlUserInputLayout.createSequentialGroup()
-                        .addComponent(lblUsername)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnlUserInputLayout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(lblEmail)
+                        .addGap(41, 41, 41))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlUserInputLayout.createSequentialGroup()
+                        .addContainerGap()
                         .addComponent(lblPass)
-                        .addGap(20, 20, 20)
-                        .addComponent(txtPass)))
+                        .addGap(18, 18, 18)))
+                .addGroup(pnlUserInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
+                    .addComponent(txtPass))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlUserInputLayout.setVerticalGroup(
@@ -72,8 +78,8 @@ public class Login extends javax.swing.JFrame {
             .addGroup(pnlUserInputLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(pnlUserInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblUsername)
-                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblEmail)
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlUserInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPass)
@@ -144,8 +150,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSignupActionPerformed
 
     private void btnSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignInActionPerformed
-        MainWindow form = new MainWindow();
-        form.setVisible(true);
+        String email = txtEmail.getText();
+        String pass = String.valueOf(txtPass.getPassword());
     }//GEN-LAST:event_btnSignInActionPerformed
 
     /**
@@ -187,11 +193,11 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton btnSignIn;
     private javax.swing.JButton btnSignup;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblPass;
-    private javax.swing.JLabel lblUsername;
     private javax.swing.JLabel lblWelcome;
     private javax.swing.JPanel pnlUserInput;
+    private javax.swing.JTextField txtEmail;
     private javax.swing.JPasswordField txtPass;
-    private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }

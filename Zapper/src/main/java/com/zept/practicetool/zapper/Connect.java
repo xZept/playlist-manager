@@ -12,7 +12,7 @@ import java.sql.Statement;
  */
 public class Connect {
     // Get the present working directory
-    static String relativePath = System.getProperty("user.dir") + File.separator + "db" + File.separator + "?.db";
+    static String relativePath = System.getProperty("user.dir") + File.separator + "db" + File.separator + "zapper.db";
     // Connection string
     static String url = "jdbc:sqlite:" + relativePath;
     static Connection con = null;
@@ -44,7 +44,7 @@ public class Connect {
             + "password text NOT NULL,\n"
             + "firstName text,\n"
             + "middleName text,\n"
-            + "lastName text,\n"
+            + "lastName text\n"
             + ");";
         try {
             con = DriverManager.getConnection(url);
