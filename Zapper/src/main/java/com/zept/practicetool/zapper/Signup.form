@@ -61,7 +61,7 @@
               <Component id="pnlSignUp" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="btnSignup" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="12" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -121,9 +121,9 @@
                               </Group>
                           </Group>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="txtConfirmPassword" pref="198" max="32767" attributes="0"/>
+                              <Component id="txtEmail" pref="198" max="32767" attributes="0"/>
                               <Component id="txtPassword" max="32767" attributes="0"/>
-                              <Component id="txtEmail" max="32767" attributes="0"/>
+                              <Component id="txtConfirmPassword" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -157,16 +157,16 @@
                       <Component id="txtEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="txtPassword" min="-2" max="-2" attributes="0"/>
-                      <Component id="lvlPassword" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lvlPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtPassword" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="txtConfirmPassword" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblConfirmPassword" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblConfirmPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtConfirmPassword" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="12" max="32767" attributes="0"/>
+                  <EmptySpace pref="18" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -210,11 +210,11 @@
             <Property name="text" type="java.lang.String" value="Confirm Password"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtConfirmPassword">
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtPassword">
-        </Component>
         <Component class="javax.swing.JTextField" name="txtEmail">
+        </Component>
+        <Component class="javax.swing.JPasswordField" name="txtPassword">
+        </Component>
+        <Component class="javax.swing.JPasswordField" name="txtConfirmPassword">
         </Component>
       </SubComponents>
     </Container>
@@ -222,6 +222,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="SIGN UP"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSignupActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

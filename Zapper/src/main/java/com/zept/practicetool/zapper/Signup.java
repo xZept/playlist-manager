@@ -4,17 +4,21 @@
  */
 package com.zept.practicetool.zapper;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Allen James Laxamana
  */
 public class Signup extends javax.swing.JFrame {
-
+    
+    Database db; // Class-level variable
     /**
      * Creates new form Signup
      */
     public Signup() {
         initComponents();
+        db = new Database();
     }
 
     /**
@@ -39,9 +43,9 @@ public class Signup extends javax.swing.JFrame {
         lblEmail = new javax.swing.JLabel();
         lvlPassword = new javax.swing.JLabel();
         lblConfirmPassword = new javax.swing.JLabel();
-        txtConfirmPassword = new javax.swing.JTextField();
-        txtPassword = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JPasswordField();
+        txtConfirmPassword = new javax.swing.JPasswordField();
         btnSignup = new javax.swing.JButton();
 
         jCheckBox1.setText("jCheckBox1");
@@ -97,9 +101,9 @@ public class Signup extends javax.swing.JFrame {
                                 .addComponent(lblConfirmPassword)
                                 .addGap(18, 18, 18)))
                         .addGroup(pnlSignUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtConfirmPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
+                            .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
                             .addComponent(txtPassword)
-                            .addComponent(txtEmail))))
+                            .addComponent(txtConfirmPassword))))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
         pnlSignUpLayout.setVerticalGroup(
@@ -124,17 +128,22 @@ public class Signup extends javax.swing.JFrame {
                     .addComponent(lblEmail)
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlSignUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lvlPassword))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlSignUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtConfirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblConfirmPassword))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addGroup(pnlSignUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lvlPassword)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(pnlSignUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblConfirmPassword)
+                    .addComponent(txtConfirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         btnSignup.setText("SIGN UP");
+        btnSignup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSignupActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -163,12 +172,28 @@ public class Signup extends javax.swing.JFrame {
                 .addComponent(pnlSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnSignup)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+  
+    private void btnSignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignupActionPerformed
+        try {
+            if (String.valueOf(txtPassword.getPassword()).equals(String.valueOf(txtConfirmPassword.getPassword()))) {
+                db.insertUser(txtFirstName.getText(),txtMiddleName.getText(),txtLastName.getText(),txtEmail.getText(),String.valueOf(txtPassword.getPassword()));
+                JOptionPane.showMessageDialog(null,"Successfully registered!");
+                dispose();
+            }
+            else {
+                JOptionPane.showMessageDialog(null,"Passwords do not match.");
+            }
+        }
+        catch (NullPointerException e) {
+            System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_btnSignupActionPerformed
 
     /**
      * @param args the command line arguments
@@ -217,11 +242,11 @@ public class Signup extends javax.swing.JFrame {
     private javax.swing.JLabel lvlPassword;
     private javax.swing.JLabel lvlSignUp;
     private javax.swing.JPanel pnlSignUp;
-    private javax.swing.JTextField txtConfirmPassword;
+    private javax.swing.JPasswordField txtConfirmPassword;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtFirstName;
     private javax.swing.JTextField txtLastName;
     private javax.swing.JTextField txtMiddleName;
-    private javax.swing.JTextField txtPassword;
+    private javax.swing.JPasswordField txtPassword;
     // End of variables declaration//GEN-END:variables
 }
