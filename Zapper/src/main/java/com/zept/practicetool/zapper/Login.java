@@ -4,6 +4,8 @@
  */
 package com.zept.practicetool.zapper;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Allen James Laxamana
@@ -152,6 +154,17 @@ public class Login extends javax.swing.JFrame {
     private void btnSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignInActionPerformed
         String email = txtEmail.getText();
         String pass = String.valueOf(txtPass.getPassword());
+        boolean searchResult = db.checkLogin(email,pass);
+        
+        // Open the main window
+        if (searchResult == true) {
+            dispose();
+            MainWindow form = new MainWindow();
+            form.setVisible(true);
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Incorrect login details.");
+        }
     }//GEN-LAST:event_btnSignInActionPerformed
 
     /**

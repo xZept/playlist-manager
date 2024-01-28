@@ -62,5 +62,24 @@ public class Database extends Connect {
         }
     }
     
-    
+    public boolean checkLogin(String email, String pass) {
+        
+        String query = "SELECT * FROM user WHERE email = ? AND password = ?";
+        
+        try (Connection connection = connect();
+            PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            preparedStatement.setString(1, email);
+            preparedStatement.setString(2, pass);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            return resultSet.next();  // If there's a match, resultSet will have at least one row.
+
+        } 
+        catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
 }
