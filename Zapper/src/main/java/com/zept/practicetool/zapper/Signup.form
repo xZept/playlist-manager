@@ -61,7 +61,7 @@
               <Component id="pnlSignUp" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="btnSignup" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="12" max="32767" attributes="0"/>
+              <EmptySpace pref="28" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -69,8 +69,8 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="lvlSignUp">
       <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="24" style="1"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="new Font(loadFonts(1).getFontName(), Font.TRUETYPE_FONT, 24)" type="code"/>
         </Property>
         <Property name="text" type="java.lang.String" value="SIGN UP"/>
       </Properties>
@@ -174,16 +174,25 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="lblFirstName">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new Font(loadFonts(1).getFontName(), Font.TRUETYPE_FONT, 12)" type="code"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="First Name"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblMiddleName">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new Font(loadFonts(1).getFontName(), Font.TRUETYPE_FONT, 12)" type="code"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Middle Name"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblLastName">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new Font(loadFonts(1).getFontName(), Font.TRUETYPE_FONT, 12)" type="code"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Last Name"/>
           </Properties>
         </Component>
@@ -197,16 +206,25 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblEmail">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new Font(loadFonts(1).getFontName(), Font.TRUETYPE_FONT, 12)" type="code"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="E-mail"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lvlPassword">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new Font(loadFonts(1).getFontName(), Font.TRUETYPE_FONT, 12)" type="code"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Password"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblConfirmPassword">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new Font(loadFonts(1).getFontName(), Font.TRUETYPE_FONT, 12)" type="code"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Confirm Password"/>
           </Properties>
         </Component>

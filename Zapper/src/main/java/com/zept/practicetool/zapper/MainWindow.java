@@ -65,6 +65,7 @@ public class MainWindow extends javax.swing.JFrame {
         txtAccounts.setEditable(false);
         txtAccounts.setBackground(new java.awt.Color(204, 204, 204));
         txtAccounts.setColumns(20);
+        txtAccounts.setForeground(new java.awt.Color(0, 0, 0));
         txtAccounts.setRows(5);
         txtAccounts.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {

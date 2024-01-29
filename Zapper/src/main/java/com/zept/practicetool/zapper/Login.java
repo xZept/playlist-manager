@@ -7,6 +7,7 @@ package com.zept.practicetool.zapper;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import com.formdev.flatlaf.*;
+import java.awt.Font;
 import javax.swing.UnsupportedLookAndFeelException;
 
 /**
@@ -49,14 +50,16 @@ public class Login extends javax.swing.JFrame {
         setTitle("ZAPPER - Login");
         setResizable(false);
 
-        lblWelcome.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblWelcome.setFont(new Font(loadFonts(1).getFontName(), Font.TRUETYPE_FONT, 24));
         lblWelcome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblWelcome.setText("LOGIN");
 
         pnlUserInput.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        lblEmail.setFont(new Font(loadFonts(1).getFontName(), Font.TRUETYPE_FONT, 12));
         lblEmail.setText("Email");
 
+        lblPass.setFont(new Font(loadFonts(1).getFontName(), Font.TRUETYPE_FONT, 12));
         lblPass.setText("Password");
 
         javax.swing.GroupLayout pnlUserInputLayout = new javax.swing.GroupLayout(pnlUserInput);
@@ -92,6 +95,7 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
+        btnSignIn.setFont(new Font(loadFonts(1).getFontName(), Font.TRUETYPE_FONT, 12));
         btnSignIn.setText("SIGN IN");
         btnSignIn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,6 +103,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        btnSignup.setFont(new Font(loadFonts(0).getFontName(), Font.TRUETYPE_FONT, 12));
         btnSignup.setText("SIGN UP");
         btnSignup.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,7 +137,7 @@ public class Login extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(36, Short.MAX_VALUE)
+                .addContainerGap(52, Short.MAX_VALUE)
                 .addComponent(lblWelcome)
                 .addGap(14, 14, 14)
                 .addComponent(pnlUserInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -200,4 +205,11 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTextField txtEmail;
     private javax.swing.JPasswordField txtPass;
     // End of variables declaration//GEN-END:variables
+
+    private Font loadFonts(int i) {
+        FontImport fontManager = new FontImport();
+
+        // Set the desired font for lblTitle
+        return fontManager.registerFonts(i);
+    }
 }

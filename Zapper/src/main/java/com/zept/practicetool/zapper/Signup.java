@@ -4,6 +4,7 @@
  */
 package com.zept.practicetool.zapper;
 
+import java.awt.Font;
 import javax.swing.JOptionPane;
 
 /**
@@ -54,21 +55,27 @@ public class Signup extends javax.swing.JFrame {
         setTitle("ZAPPER - Login");
         setResizable(false);
 
-        lvlSignUp.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lvlSignUp.setFont(new Font(loadFonts(1).getFontName(), Font.TRUETYPE_FONT, 24));
         lvlSignUp.setText("SIGN UP");
 
         pnlSignUp.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        lblFirstName.setFont(new Font(loadFonts(1).getFontName(), Font.TRUETYPE_FONT, 12));
         lblFirstName.setText("First Name");
 
+        lblMiddleName.setFont(new Font(loadFonts(1).getFontName(), Font.TRUETYPE_FONT, 12));
         lblMiddleName.setText("Middle Name");
 
+        lblLastName.setFont(new Font(loadFonts(1).getFontName(), Font.TRUETYPE_FONT, 12));
         lblLastName.setText("Last Name");
 
+        lblEmail.setFont(new Font(loadFonts(1).getFontName(), Font.TRUETYPE_FONT, 12));
         lblEmail.setText("E-mail");
 
+        lvlPassword.setFont(new Font(loadFonts(1).getFontName(), Font.TRUETYPE_FONT, 12));
         lvlPassword.setText("Password");
 
+        lblConfirmPassword.setFont(new Font(loadFonts(1).getFontName(), Font.TRUETYPE_FONT, 12));
         lblConfirmPassword.setText("Confirm Password");
 
         javax.swing.GroupLayout pnlSignUpLayout = new javax.swing.GroupLayout(pnlSignUp);
@@ -172,7 +179,7 @@ public class Signup extends javax.swing.JFrame {
                 .addComponent(pnlSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSignup)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         pack();
@@ -249,4 +256,11 @@ public class Signup extends javax.swing.JFrame {
     private javax.swing.JTextField txtMiddleName;
     private javax.swing.JPasswordField txtPassword;
     // End of variables declaration//GEN-END:variables
+
+    private Font loadFonts(int i) {
+        FontImport fontManager = new FontImport();
+
+        // Set the desired font for lblTitle
+        return fontManager.registerFonts(i);
+    }
 }
