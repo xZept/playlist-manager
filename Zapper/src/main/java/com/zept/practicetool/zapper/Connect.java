@@ -46,8 +46,8 @@ public class Connect {
             + "middleName text,\n"
             + "lastName text\n"
             + ");";
-        String sql2 = "CREATE TALE IF NOT EXISTS account (\n"
-            + "id int PRIMARY KEY AUTOINCREMENT,\n"
+        String sql2 = "CREATE TABLE IF NOT EXISTS account (\n"
+            + "id integer PRIMARY KEY AUTOINCREMENT,\n"
             + "emailOrUsername text,\n"
             + "password text\n"
             + ");";
