@@ -215,9 +215,6 @@
         <Component class="javax.swing.JPasswordField" name="txtPassword">
         </Component>
         <Component class="javax.swing.JPasswordField" name="txtConfirmPassword">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jPasswordField1"/>
-          </Properties>
         </Component>
       </SubComponents>
     </Container>

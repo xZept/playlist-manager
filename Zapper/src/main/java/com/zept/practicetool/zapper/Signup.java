@@ -71,8 +71,6 @@ public class Signup extends javax.swing.JFrame {
 
         lblConfirmPassword.setText("Confirm Password");
 
-        txtConfirmPassword.setText("jPasswordField1");
-
         javax.swing.GroupLayout pnlSignUpLayout = new javax.swing.GroupLayout(pnlSignUp);
         pnlSignUp.setLayout(pnlSignUpLayout);
         pnlSignUpLayout.setHorizontalGroup(

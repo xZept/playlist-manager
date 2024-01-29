@@ -4,6 +4,8 @@
  */
 package com.zept.practicetool.zapper;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Allen James Laxamana
@@ -13,8 +15,11 @@ public class AddWindow extends javax.swing.JFrame {
     /**
      * Creates new form AddWindow
      */
+    Database db;
+    
     public AddWindow() {
         initComponents();
+        db = new Database();
     }
 
     /**
@@ -28,25 +33,40 @@ public class AddWindow extends javax.swing.JFrame {
 
         txtAppOrSiteName = new javax.swing.JTextField();
         txtEmailOrUsername = new javax.swing.JTextField();
-        txtPassword = new javax.swing.JTextField();
         lblAppOrSiteName = new javax.swing.JLabel();
         btnAdd = new javax.swing.JButton();
         lblEmailOrUsername = new javax.swing.JLabel();
         lblPassword = new javax.swing.JLabel();
+        txtConfirmPassword = new javax.swing.JPasswordField();
+        lblConfirmPassword = new javax.swing.JLabel();
+        txtPassword = new javax.swing.JPasswordField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("ZAPPER - Add new account");
         setResizable(false);
 
-        txtPassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtAppOrSiteName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        txtEmailOrUsername.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         lblAppOrSiteName.setText("App or Site Name");
 
         btnAdd.setText("ADD");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
 
         lblEmailOrUsername.setText("E-mail or Username");
 
         lblPassword.setText("Password");
+
+        txtConfirmPassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        lblConfirmPassword.setText("Confirm Password");
+
+        txtPassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -59,23 +79,28 @@ public class AddWindow extends javax.swing.JFrame {
                         .addComponent(lblAppOrSiteName))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(46, 46, 46)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtAppOrSiteName, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                            .addComponent(txtEmailOrUsername)
-                            .addComponent(txtPassword))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtConfirmPassword, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                            .addComponent(txtAppOrSiteName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                            .addComponent(txtEmailOrUsername, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.LEADING))))
                 .addContainerGap(45, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addContainerGap(79, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(lblEmailOrUsername)
                         .addGap(76, 76, 76))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(89, 89, 89))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(lblPassword)
-                        .addGap(103, 103, 103))))
+                        .addGap(103, 103, 103))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(89, 89, 89))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lblConfirmPassword)
+                .addGap(79, 79, 79))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,11 +113,15 @@ public class AddWindow extends javax.swing.JFrame {
                 .addComponent(txtEmailOrUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblEmailOrUsername)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(12, 12, 12)
                 .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblPassword)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtConfirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblConfirmPassword)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(btnAdd)
                 .addGap(22, 22, 22))
         );
@@ -100,6 +129,21 @@ public class AddWindow extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        String appOrSiteName = txtAppOrSiteName.getText();
+        String emailOrUsername = txtEmailOrUsername.getText();
+        String password = String.valueOf(txtPassword.getPassword());
+        String confirmPassword = String.valueOf(txtConfirmPassword.getPassword());
+        
+        if (password.equals(confirmPassword)) {
+            db.saveAccount(appOrSiteName,emailOrUsername,password);
+        }
+        else {
+            JOptionPane.showMessageDialog(null,"Passwords do not match.");
+        }
+        dispose();
+    }//GEN-LAST:event_btnAddActionPerformed
 
     /**
      * @param args the command line arguments
@@ -139,10 +183,12 @@ public class AddWindow extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     private javax.swing.JLabel lblAppOrSiteName;
+    private javax.swing.JLabel lblConfirmPassword;
     private javax.swing.JLabel lblEmailOrUsername;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JTextField txtAppOrSiteName;
+    private javax.swing.JPasswordField txtConfirmPassword;
     private javax.swing.JTextField txtEmailOrUsername;
-    private javax.swing.JTextField txtPassword;
+    private javax.swing.JPasswordField txtPassword;
     // End of variables declaration//GEN-END:variables
 }

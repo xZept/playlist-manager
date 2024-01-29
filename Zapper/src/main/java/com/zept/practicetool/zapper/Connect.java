@@ -48,6 +48,7 @@ public class Connect {
             + ");";
         String sql2 = "CREATE TABLE IF NOT EXISTS account (\n"
             + "id integer PRIMARY KEY AUTOINCREMENT,\n"
+            + "appOrSiteName text,\n"
             + "emailOrUsername text,\n"
             + "password text\n"
             + ");";
